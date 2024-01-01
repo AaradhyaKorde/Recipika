@@ -4,11 +4,17 @@ import React, { useEffect } from 'react'
 
 
 const Edit = () => {
+
   let navigateTo = useNavigate();
+
   let [mainTitle,setMainTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
+  const [categories, setCategories] = useState('');
+
+
   let { title } = useParams();
+
   let xyz = async() => {
     if(mainTitle) {
     let response = await fetch('http://localhost:4500/api/posts/getRecipeByTitle',{
@@ -20,6 +26,7 @@ const Edit = () => {
     console.log(data.description);
     setDescription(data.description);
     setImage(data.imageUrl);
+    setCategories(data.categories);
   }
   }
   useEffect(() =>{
@@ -35,6 +42,8 @@ const Edit = () => {
       formData.append('title', mainTitle);
       formData.append('description', description);
       formData.append('image', image);
+      formData.append('categories', categories);
+
         const response = await fetch('http://localhost:4500/api/posts/update-recipe', {
           method: 'POST',
           body: formData,
@@ -45,6 +54,7 @@ const Edit = () => {
           console.error('Failed to create post');
         }
     };
+    
   return (
     <div>
       <div className="form-container">
@@ -55,6 +65,8 @@ const Edit = () => {
     <textarea id="description" name="description" value={description} rows="4" required onChange={(e) => setDescription(e.target.value)}></textarea>
       <label>Upload New Image:</label>
       <input id="image" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
+      <label>Categories (separated by commas):</label>
+      <input type="text" id="categoriesInput" placeholder="Enter categories" onChange={(e) => setCategories(e.target.value)} />
       <button type="submit">Update Recipe</button>
     </form>
     </div>
