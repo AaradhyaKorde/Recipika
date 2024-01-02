@@ -66,7 +66,7 @@ const Edit = () => {
       <label>Upload New Image:</label>
       <input id="image" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
       <label>Categories (separated by commas):</label>
-      <input type="text" id="categoriesInput" placeholder="Enter categories" onChange={(e) => setCategories(e.target.value)} />
+      <input type="text" id="categoriesInput" placeholder="Enter categories" value={categories.toString()} onChange={(e) => setCategories(e.target.value)} />
       <button type="submit">Update Recipe</button>
     </form>
     </div>

@@ -1,7 +1,9 @@
+import {useNavigate} from 'react-router-dom'
 import { useState } from "react";
 import './Something.css'
 
 const Add = () => {
+  const navigateTo = useNavigate();
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -25,6 +27,7 @@ const Add = () => {
 
       if (response.ok) {
         console.log('Recipe created successfully');
+        navigateTo('/viewAll');
       } else {
         console.error('Failed to create post');
       }
@@ -41,7 +44,6 @@ const Add = () => {
       <input id="image" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
       <label>Categories (separated by commas):</label>
       <input type="text" id="categoriesInput" placeholder="Enter categories" onChange={(e) => setCategories(e.target.value)} />
-
       <button type="submit">Add Recipe</button>
     </form>
     </div>

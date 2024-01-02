@@ -14,9 +14,7 @@ app.use(express.json());
 
 
 //Database
-mongoose.connect("mongodb://127.0.0.1:27017/recipe", {useNewUrlParser: true, useUnifiedTopology: true})
-    .then( () => console.log("ConnectedToMongoDB"))
-    .catch((err) => console.error(err));
+mongoose.connect('mongodb+srv://khush102938:Raj2raaj@cluster0.wymkiud.mongodb.net/?retryWrites=true&w=majority')
 
 const recipeSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -46,6 +44,7 @@ app.post('/api/posts/create-recipe', upload.single('image'), async (req, res) =>
   const { title, description, categories } = req.body;
   const imageUrl = req.file.path;
   const parsedCategories = categories.split(','); // Assuming categories is a string
+  console.log(parsedCategories); //for testing purposes
   const newRecipe = new Recipe({ title, description, imageUrl, categories: parsedCategories });
   await newRecipe.save();
   res.json({ message: 'Recipe created successfully' });
@@ -88,7 +87,24 @@ app.post('/api/posts/getRecipeByTitle',async(req,res)=> {
   {
     return res.json(existingRecipe);
   }
-})
+});
+
+app.post('/api/posts/getRecipeByCategory',async(req,res)=> {
+  let category = req.body.category;
+  let recipes = await Recipe.find({});
+  let data = [];
+  recipes.map(recipe => {
+    if(recipe.categories.find((element) => {
+      return element.toLowerCase() === category.toLowerCase();
+    })) data.push(recipe);
+  });
+  let final = data.map(recipe => ({
+    title: recipe.title,
+    description: recipe.description,
+    imageUrl: `http://localhost:${PORT}/${recipe.imageUrl}`
+  }));
+  return res.json(final);
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
