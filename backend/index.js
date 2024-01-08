@@ -4,6 +4,8 @@ const multer = require('multer');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+const secret = "102938";
 
 const PORT = process.env.PORT || 4500;
 
@@ -16,6 +18,12 @@ app.use(express.json());
 //Database
 mongoose.connect('mongodb+srv://khush102938:Raj2raaj@cluster0.wymkiud.mongodb.net/?retryWrites=true&w=majority')
 
+const userSchema = new mongoose.Schema({
+  username: String,
+  password: String,
+  gmail: String
+})
+
 const recipeSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
@@ -24,7 +32,7 @@ const recipeSchema = new mongoose.Schema({
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
-
+const User = mongoose.model('Recipika-Users', userSchema);
 
 //Multer Configuration
 const storage = multer.diskStorage({
@@ -39,6 +47,29 @@ const upload = multer({ storage: storage });
 
 
 //API routes
+
+app.post('/api/register',async(req,res)=> {
+  const {username,password,gmail} = req.body;
+  let existingUser = await User.findOne({username});
+  if(existingUser) return res.json({message: "Username already exists"});
+  existingUser = await User.findOne({gmail});
+  if(existingUser) return res.json({message: "Gmail already exists"});
+  let json = {gmail,username,password};
+  let newUser = new User(json);
+  await newUser.save();
+  let token = jwt.sign(json,secret);
+  return res.json({token});
+})
+
+app.post('/api/login',async(req,res)=> {
+  const {username,password} = req.body;
+  let existingUser = await User.findOne({username: username});
+  if(!existingUser) return res.json({message: "User not found"});
+  if(existingUser.password !== password) return res.json({message: "Incorrect password"});
+  let json = {username,password,gmail: existingUser.gmail};
+  let token = jwt.sign(json,secret);
+  return res.json({token});
+})
 
 app.post('/api/posts/create-recipe', upload.single('image'), async (req, res) => {
   const { title, description, categories } = req.body;
