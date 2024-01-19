@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from 'react'
+import { Link } from 'react-router-dom';
 import RecipeCard from './RecipeCard'
 import './Something.css'
 
@@ -35,9 +36,10 @@ const ViewAll = () => {
         }} />
         <input class="button--submit" value="Search" onClick={searchRecipe}  />
       </div>
-      <div className='mt-[8.6vh] bg-gray-900 px-10 py-20 flex gap-5 flex-wrap items-center justify-around'>
+      <div className='recipeCardOuter mt-[8.6vh] bg-gray-900 px-10 py-20 flex gap-5 flex-wrap items-center'>
         {array.map(RecipeCard)}
       </div>
+      <Link className='addRecipeBtn' to='/addrecipe'>Create</Link>
     </>
   )
 }

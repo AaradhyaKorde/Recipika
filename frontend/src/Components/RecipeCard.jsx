@@ -9,7 +9,7 @@ const RecipeCard = (recipe) => {
   // }
   const maxLength = 100;
   return (
-    <div className="max-w-sm mx-auto bg-white rounded-xl overflow-hidden shadow-lg" style={{
+    <div className="recipeCard mx-auto bg-white rounded-xl overflow-hidden shadow-lg" style={{
       background:
     "linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))",
     backdropFilter: "blur(20px)",

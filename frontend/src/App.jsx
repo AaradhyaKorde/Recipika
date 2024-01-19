@@ -11,6 +11,7 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route index element={<Login />} />
           <Route path='/viewall' element={<ViewAll />} />
           <Route path='/addRecipe' element={<Add />} />
           <Route path='/editRecipe/:title' element={<Edit />} />

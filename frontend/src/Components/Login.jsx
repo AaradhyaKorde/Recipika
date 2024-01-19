@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Something.css'
 
 const Login = () => {
@@ -15,6 +16,13 @@ const Login = () => {
         });
         let data = await response.json();
         console.log(data.token);
+        if (data.token) {
+          // Redirect to another page after successful login
+          window.location.href = '/viewall'; // Replace with the actual page URL
+      } else {
+          // Handle unsuccessful login, e.g., display an error message
+          alert('Login failed');
+      }
     };
 
 
@@ -31,6 +39,7 @@ const Login = () => {
           
     }}>Login</button>
     </div>
+    <p>For a new account <Link to='/register'>here</Link>.</p>
     </form>
     </div>
   )

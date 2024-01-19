@@ -53,6 +53,9 @@ body {
   .input-group {
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 7vh;
+    left: 7vw;
   }
   
   .input {
@@ -88,3 +91,21 @@ body {
     outline: none;
   }
   
+  .addRecipeBtn{
+    width: 20vw;
+    height: 10vh;
+    position: absolute;
+    right: 5vw;
+    bottom: 5vh;
+  }
+
+  .recipeCardOuter{
+    /* display: flex; */
+    margin-top: 50vh;
+
+  }
+
+  .recipeCard{
+    width: 25vw;
+    height: 55vh;
+  }

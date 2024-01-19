@@ -1,4 +1,4 @@
-import {useNavigate} from 'react-router-dom'
+import {useNavigate , Link} from 'react-router-dom'
 import React, { useState } from 'react'
 import './Something.css'
 
@@ -16,6 +16,13 @@ const Register = () => {
         });
         let data = await response.json();
         console.log(data);
+        if (data.token) {
+          // Redirect to another page after successful login
+          window.location.href = '/login'; // Replace with the actual page URL
+      } else {
+          // Handle unsuccessful login, e.g., display an error message
+          alert('Registration failed');
+      }
     };
 
 
@@ -31,7 +38,10 @@ const Register = () => {
       <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
       <button type="submit" onClick={handleSubmit}>Register</button>
+      <br />
     </div>
+      
+    <p>already have account? <Link to='/login'>here</Link>.</p>
     </div>
     </div>
   )
