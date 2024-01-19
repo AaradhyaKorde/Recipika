@@ -43,6 +43,7 @@ const Register = () => {
       
     <p>already have account? <Link to='/login'>here</Link>.</p>
     </div>
+    <div className="backgroundimg"></div>
     </div>
   )
 }

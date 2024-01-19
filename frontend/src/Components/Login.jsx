@@ -35,12 +35,13 @@ const Login = () => {
       <label htmlFor="password">Password:</label>
       <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-      <button type="submit" style={{
+      <button className='submit-btn' type="submit" style={{
           
     }}>Login</button>
     </div>
     <p>For a new account <Link to='/register'>here</Link>.</p>
     </form>
+    <div className="backgroundimg"></div>
     </div>
   )
 }

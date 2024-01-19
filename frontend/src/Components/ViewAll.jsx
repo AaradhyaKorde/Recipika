@@ -28,6 +28,7 @@ const ViewAll = () => {
         setArray(data);
       }
     }
+
   return (
     <>
       <div class="input-group ml-12">
@@ -36,7 +37,8 @@ const ViewAll = () => {
         }} />
         <input class="button--submit" value="Search" onClick={searchRecipe}  />
       </div>
-      <div className='recipeCardOuter mt-[8.6vh] bg-gray-900 px-10 py-20 flex gap-5 flex-wrap items-center'>
+      <div className='recipeCardOuter mt-[8.6vh] bg-yellow
+      -900 px-10 py-20 flex gap-5 flex-wrap items-center'>
         {array.map(RecipeCard)}
       </div>
       <Link className='addRecipeBtn' to='/addrecipe'>Create</Link>
