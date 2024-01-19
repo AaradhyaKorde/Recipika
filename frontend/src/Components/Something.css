@@ -114,8 +114,7 @@ body {
   .recipeCard{
     width: 25vw;
     height: 55vh;
-    border: 2px solid green;
-    background-color: green;
+    background-color: #353634;
   }
   
   /* .recipeCard:hover{

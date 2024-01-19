@@ -9,16 +9,8 @@ const RecipeCard = (recipe) => {
   // }
   const maxLength = 100;
   return (
-    <div className="recipeCard mx-auto bg-white rounded-xl overflow-hidden shadow-lg" style={{
-      background:
-    "linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))",
-    backdropFilter: "blur(20px)",
-    WebkitBackdropFilter: "blur(20px)",
-   borderRadius: "20px",
-    border: "1px solid rgba(255, 255, 255, 0.18)",
-   boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)"
-    }}>
-      <img class="mt-4 relative w-84 mx-4 h-28 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border shadow-lg  bg-white" src={recipe.imageUrl}></img>
+    <div className="recipeCard mx-auto bg-gray-900 rounded-xl overflow-hidden shadow-lg" >
+      <img class="mt-4 relative border-red-400 w-84 mx-4 h-28 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border shadow-lg  bg-white" src={recipe.imageUrl}></img>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-primary">{recipe.title}</div>
         <p className="text-secondary text-base py-5">
