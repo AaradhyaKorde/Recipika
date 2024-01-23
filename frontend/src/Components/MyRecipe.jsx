@@ -1,17 +1,19 @@
 import React,{useEffect, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import RecipeCard from './RecipeCard'
+import MyRecipeCard from './MyRecipeCard'
 import './Something.css'
 import Navbar from './navbar'
 
-const ViewAll = (props) => {
+const MyRecipe = (props) => {
   const navigateTo = useNavigate();
     const [array,setArray] = useState([]);
     const [search,setSearch] = useState('');
     const [main,setMain] = useState('');
     let x = async() => {
-        const response = await fetch('http://localhost:4500/api/posts/get-recipes',{
-            method: 'GET'
+        const response = await fetch('http://localhost:4500/api/posts/getRecipeByUsername',{
+            method: 'POST',
+            body: JSON.stringify({user: props.login}),
+            headers: {'Content-Type': 'application/json'}
         })
         const data = await response.json();
         setArray(data);
@@ -48,11 +50,11 @@ const ViewAll = (props) => {
         <input class="button--submit" value="Search" onClick={searchRecipe}  />
       </div>
       <div className='recipeCardOuter -900 px-10 py-20 flex gap-5 flex-wrap items-center'>
-        {array.map(RecipeCard)}
+        {array.map(MyRecipeCard)}
       </div>
       <Link className='addRecipeBtn' to='/addrecipe'>Create</Link>
     </>
   )
 }
 
-export default ViewAll
+export default MyRecipe

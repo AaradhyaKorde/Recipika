@@ -3,7 +3,7 @@ import { useParams,useNavigate } from 'react-router-dom'
 import React, { useEffect } from 'react'
 
 
-const Edit = () => {
+const Edit = (props) => {
 
   let navigateTo = useNavigate();
 
@@ -31,6 +31,10 @@ const Edit = () => {
   }
   useEffect(() =>{
     console.log("title " + mainTitle);
+    if(props.login === null)  
+      {
+        navigateTo('/login');
+      }
   xyz();
   },[mainTitle])
   useEffect(() => {

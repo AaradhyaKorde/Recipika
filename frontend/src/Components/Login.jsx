@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './Something.css'
 
-const Login = () => {
-
+const Login = (props) => {
+  const navigateTo = useNavigate();
     let [username,setUsername] = useState('');
     let [password,setPassword] = useState('');
+
+    useEffect(()=> {
+      props.setLogin(null);
+    },[])
 
     let handleSubmit = async(event) => {
         event.preventDefault();
@@ -18,7 +22,8 @@ const Login = () => {
         console.log(data.token);
         if (data.token) {
           // Redirect to another page after successful login
-          window.location.href = '/viewall'; // Replace with the actual page URL
+          props.setLogin(data.token);
+          navigateTo('/viewAll') // Replace with the actual page URL
       } else {
           // Handle unsuccessful login, e.g., display an error message
           alert('Login failed');

@@ -1,10 +1,16 @@
 import {useNavigate} from 'react-router-dom'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './Something.css'
 import Navbar from './navbar';
 
-const Add = () => {
+const Add = (props) => {
   const navigateTo = useNavigate();
+  useEffect(()=> {
+    if(props.login ==null)
+    {
+      navigateTo('/viewAll');
+    }
+  },[])
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -20,6 +26,7 @@ const Add = () => {
     formData.append('description', description);
     formData.append('image', image);
     formData.append('categories', categories);
+    formData.append('user',props.login);
 
       const response = await fetch('http://localhost:4500/api/posts/create-recipe', {
         method: 'POST',

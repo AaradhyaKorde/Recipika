@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema({
 
 const recipeSchema = new mongoose.Schema({
   title: { type: String, required: true },
+  username: { type: String, required: true},
   description: { type: String, required: true },
   imageUrl: { type: String, required: true },
   categories: [String]
@@ -72,11 +73,14 @@ app.post('/api/login',async(req,res)=> {
 })
 
 app.post('/api/posts/create-recipe', upload.single('image'), async (req, res) => {
-  const { title, description, categories } = req.body;
+  const { title, description, categories,user } = req.body;
+  const token = user;
+  const userData = jwt.verify(token,secret);
+  username = userData.username;
   const imageUrl = req.file.path;
   const parsedCategories = categories.split(','); // Assuming categories is a string
   console.log(parsedCategories); //for testing purposes
-  const newRecipe = new Recipe({ title, description, imageUrl, categories: parsedCategories });
+  const newRecipe = new Recipe({ title, description, imageUrl, categories: parsedCategories,username: username });
   await newRecipe.save();
   res.json({ message: 'Recipe created successfully' });
 });
@@ -120,13 +124,37 @@ app.post('/api/posts/getRecipeByTitle',async(req,res)=> {
   }
 });
 
+app.post('/api/posts/getRecipeByUsername',async(req,res)=> {
+  let token = req.body.user;
+  if(!token) return res.json({error: "Some error"})
+  let userData = jwt.verify(token,secret);
+  let username = userData.username;
+  console.log(username);
+  let existingRecipe = await Recipe.find({ username: username });
+  const data = existingRecipe.map(recipe => ({
+    title: recipe.title,
+    description: recipe.description,
+    imageUrl: `http://localhost:${PORT}/${recipe.imageUrl}`
+  }));
+  if(!existingRecipe)
+  {
+    return res.json({ message: 'Recipe Not Found' });
+  }
+  else
+  {
+    return res.json(data);
+  }
+});
+
 app.post('/api/posts/getRecipeByCategory',async(req,res)=> {
   let category = req.body.category;
   let recipes = await Recipe.find({});
   let data = [];
   recipes.map(recipe => {
     if(recipe.categories.find((element) => {
-      return element.toLowerCase() === category.toLowerCase();
+      element = element.toLowerCase();
+      category = category.toLowerCase();
+      return element.startsWith(category);
     })) data.push(recipe);
   });
   let final = data.map(recipe => ({
