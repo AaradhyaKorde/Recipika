@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import RecipeCard from './RecipeCard'
 import './Something.css'
+import Navbar from './navbar'
 
 const ViewAll = () => {
     const [array,setArray] = useState([]);
@@ -31,6 +32,7 @@ const ViewAll = () => {
 
   return (
     <>
+    <Navbar />
       <div class="input-group ml-12">
         <input type="text" class="input" id="Email" name="Email" placeholder="Search by category..." autocomplete="off" value={search} onChange={(e) => {
           setSearch(e.target.value);

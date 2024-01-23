@@ -1,6 +1,7 @@
 import {useNavigate} from 'react-router-dom'
 import { useState } from "react";
 import './Something.css'
+import Navbar from './navbar';
 
 const Add = () => {
   const navigateTo = useNavigate();
@@ -35,6 +36,7 @@ const Add = () => {
   
   return (
     <div className="form-container">
+      <Navbar />
     <form onSubmit={handleSubmit} id="postForm">
       <label htmlFor="title">Title:</label>
       <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />

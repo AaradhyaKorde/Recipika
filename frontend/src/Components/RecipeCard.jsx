@@ -13,7 +13,7 @@ const RecipeCard = (recipe) => {
       <img class="mt-4 relative border-red-400 w-84 mx-4 h-28 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border shadow-lg  bg-white" src={recipe.imageUrl}></img>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-primary">{recipe.title}</div>
-        <p className="text-secondary text-base py-5">
+        <p className="recipeDescription text-secondary text-base py-5">
           {recipe.description.length > maxLength
             ? `${recipe.description.substring(0, maxLength)}...`
             : recipe.description}
