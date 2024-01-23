@@ -7,6 +7,7 @@ import Navbar from './navbar'
 const ViewAll = () => {
     const [array,setArray] = useState([]);
     const [search,setSearch] = useState('');
+    const [main,setMain] = useState('');
     let x = async() => {
         const response = await fetch('http://localhost:4500/api/posts/get-recipes',{
             method: 'GET'

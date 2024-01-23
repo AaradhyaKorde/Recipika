@@ -5,6 +5,7 @@ import ViewAll from './Components/ViewAll'
 import Edit from './Components/Edit'
 import Login from './Components/Login'
 import Register from './Components/Register'
+import Show from './Components/Show'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path='/viewall' element={<ViewAll />} />
           <Route path='/addRecipe' element={<Add />} />
           <Route path='/editRecipe/:title' element={<Edit />} />
+          <Route path='/showRecipe/:title' element={<Show />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>
