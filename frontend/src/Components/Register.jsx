@@ -10,6 +10,7 @@ const Register = (props) => {
 
   const handleSubmit = async () => {
     // Remove the invalid useNavigate call from here
+    props.setLoader(true);
     let response = await fetch('http://localhost:4500/api/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -20,9 +21,11 @@ const Register = (props) => {
     if (data.token) {
       props.setLogin(data.token);
       navigateTo('/viewAll');
+      props.setLoader(false);
     } else {
       // Handle unsuccessful registration, e.g., display an error message
       alert('Registration failed');
+      props.setLoader(false);
     }
   };
 

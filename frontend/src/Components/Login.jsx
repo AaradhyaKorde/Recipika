@@ -12,6 +12,7 @@ const Login = (props) => {
     },[])
 
     let handleSubmit = async(event) => {
+      props.setLoader(true);
         event.preventDefault();
         let response = await fetch('http://localhost:4500/api/login',{
             method: 'POST',
@@ -23,10 +24,12 @@ const Login = (props) => {
         if (data.token) {
           // Redirect to another page after successful login
           props.setLogin(data.token);
+          props.setLoader(false);
           navigateTo('/viewAll') // Replace with the actual page URL
       } else {
           // Handle unsuccessful login, e.g., display an error message
           alert('Login failed');
+          props.setLoader(false);
       }
     };
 
