@@ -17,6 +17,7 @@ const Edit = (props) => {
 
   let xyz = async() => {
     if(mainTitle) {
+      props.setLoader(true);
     let response = await fetch('http://localhost:4500/api/posts/getRecipeByTitle',{
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,6 +28,7 @@ const Edit = (props) => {
     setDescription(data.description);
     setImage(data.imageUrl);
     setCategories(data.categories);
+    props.setLoader(false);
   }
   }
   useEffect(() =>{
@@ -42,6 +44,7 @@ const Edit = (props) => {
   },[])
     const handleSubmit = async (e) => {
       event.preventDefault();
+      props.setLoader(true);
       const formData = new FormData();
       formData.append('title', mainTitle);
       formData.append('description', description);
@@ -54,8 +57,10 @@ const Edit = (props) => {
         });
         if (response.ok) {
           navigateTo('/viewall')
+          props.setLoader(false);
         } else {
           console.error('Failed to create post');
+          props.setLoader(false);
         }
     };
     

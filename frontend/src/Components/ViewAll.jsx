@@ -10,11 +10,13 @@ const ViewAll = (props) => {
     const [search,setSearch] = useState('');
     const [main,setMain] = useState('');
     let x = async() => {
+      props.setLoader(true);
         const response = await fetch('http://localhost:4500/api/posts/get-recipes',{
             method: 'GET'
         })
         const data = await response.json();
         setArray(data);
+        props.setLoader(false);
     }
     useEffect(() => {
       if(props.login === null)  
@@ -25,6 +27,7 @@ const ViewAll = (props) => {
     },[])
     let searchRecipe = async() => {
       console.log(search);
+      props.setLoader(true);
       const response = await fetch('http://localhost:4500/api/posts/getRecipeByCategory',{
         method: 'POST',
         headers: {"Content-Type": "application/json"},
@@ -34,7 +37,9 @@ const ViewAll = (props) => {
       console.log(data);
       if(response.ok && data.length > 0) {
         setArray(data);
+        props.setLoader(false);
       }
+      props.setLoader(false);
     }
 
   return (

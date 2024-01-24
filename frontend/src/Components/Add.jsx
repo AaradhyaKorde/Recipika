@@ -20,7 +20,7 @@ const Add = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    props.setLoader(true);
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
@@ -36,8 +36,10 @@ const Add = (props) => {
       if (response.ok) {
         console.log('Recipe created successfully');
         navigateTo('/viewAll');
+        props.setLoader(false);
       } else {
         console.error('Failed to create post');
+        props.setLoader(false);
       }
   };
   

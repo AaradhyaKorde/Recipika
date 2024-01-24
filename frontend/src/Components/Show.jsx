@@ -3,7 +3,7 @@ import { useParams,useNavigate } from 'react-router-dom'
 import React, { useEffect } from 'react'
 
 
-const Show = () => {
+const Show = (props) => {
 
   let navigateTo = useNavigate();
 
@@ -17,6 +17,7 @@ const Show = () => {
 
   let xyz = async() => {
     if(mainTitle) {
+      props.setLoader(true);
     let response = await fetch('http://localhost:4500/api/posts/getRecipeByTitle',{
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -27,12 +28,15 @@ const Show = () => {
     setDescription(data.description);
     setImage(data.imageUrl);
     setCategories(data.categories);
+    props.setLoader(false);
   }
   }
+
   useEffect(() =>{
     console.log("title " + mainTitle);
   xyz();
   },[mainTitle])
+
   useEffect(() => {
     setMainTitle(title.slice(6));
   },[])
