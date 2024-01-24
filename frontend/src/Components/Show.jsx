@@ -46,7 +46,7 @@ const Show = () => {
     <form onSubmit={handleSubmit} id="postForm">
       <label htmlFor="title">Recipe Title:</label>
       <input type="text" id="title" contentEditable={false} value={mainTitle} />
-      <label htmlFor="description">Edit Description:</label>
+      <label htmlFor="description">Description:</label>
     <textarea id="description" name="description" contentEditable={false} value={description} rows={9} required ></textarea>
       <button type="submit">View More</button>
     </form>

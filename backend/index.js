@@ -16,7 +16,7 @@ app.use(express.json());
 
 
 //Database
-mongoose.connect('mongodb+srv://khush102938:Raj2raaj@cluster0.wymkiud.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://utkarsh:cSTxUu1BXzFu7mvD@cluster0.aury35y.mongodb.net/?retryWrites=true&w=majority')
 
 const userSchema = new mongoose.Schema({
   username: String,
