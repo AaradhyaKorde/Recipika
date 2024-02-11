@@ -21,10 +21,11 @@ body {
     width: 40vw;
     font-family: Univa Nova;
     /* border: 1px solid blue; */
-    background-color: #6f7997;
+    background-color: #6f7997ed;
     /* display: flex;
     flex-direction: column; */
     padding-left: 2vw;
+    /* color: white; */
   }
 
   .form-container label {
@@ -59,14 +60,22 @@ body {
   .imageInput{
     display: flex;
     flex-direction: row;
+    color: black;
   }
 
   .imageInput label {
     padding-top: 10px;
+    color: white;
   }
 
   #description {
     width: 100%;
+    color: black;
+  }
+
+  #titleLable,#categoriesInputLable{
+    width: 100%;
+    color: white;
   }
 
   #title,#categoriesInput{
@@ -96,7 +105,7 @@ body {
     display: flex;
     align-items: center;
     position: absolute;
-    top: 0.4vh;
+    top: 0.3vh;
     left: -51vw;
     margin-left: 1vw;
   }
@@ -148,9 +157,9 @@ body {
     /* display: none; */
   /* }  */
 
-  .recipeCardOuter{
-    /* display: flex; */
-    /* margin-top: 150vh; */
+  /* .recipeCardOuter{
+    display: flex;
+    margin-top: 150vh;
     height: fit-content;
     min-width: 100vw;
     height: auto;
@@ -159,6 +168,15 @@ body {
     position: relative;
     top: 10vh;
     justify-content: flex-start;
+  } */
+
+  .recipeCardOuter {
+    max-height: 80vh; 
+    overflow-y: auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px; 
   }
 
   
@@ -302,7 +320,7 @@ body {
   .landscapeDivs{
     width: 65vw;
     height: 150vh;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     position: absolute;
     left: 0;
     top: 100vh;
@@ -316,34 +334,62 @@ body {
     flex: 0 0;
     min-width: 30vw;
     height: 25vh;
-    border: 1px solid limegreen;
+    /* border: 1px solid limegreen; */
     margin-top: 2.5vh;
     margin-left: 2.3vw;
   }
-
+  
+  .overlay {
+    position: relative;
+    top: -25vh;
+    left: 0;
+    min-width: 30vw;
+    height: 25vh;
+    background-color: rgba(0, 0, 0, 0.243); /* Dark overlay color with transparency */
+    transition: opacity 0.3s ease;
+}
+.landDivs img{
+  width: 30vw;
+  height: 25vh;
+}
   .aboutDivHome{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 65vw;
     height: 150vh;
     position: absolute;
     bottom: -300vh;
     left: 0;
+    background-color: #6f7997;
   }
 
   .allOfTheAbove{
     background-color: white;
   }
 
-  .overlay {
-    position: relative;
-    top: -24vh;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.082); /* Dark overlay color with transparency */
-    transition: opacity 0.3s ease;
-}
 
 .landDivs:hover .overlay {
     opacity: 0; /* Make the overlay transparent on hover */
+}
+
+
+.addFormBackground{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-size: 50vw;
+  background-repeat: no-repeat;
+  margin-left: 25vw;
+}
+
+.logoImg{
+  width: 18vw;
+  height: auto;
+  position: fixed;
+  top: 0vh;
+  left: 0;
+  /* border: 1px solid red; */
+  z-index: 3;
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams,useNavigate } from 'react-router-dom'
 import React, { useEffect } from 'react'
+import Logo from '../Components/logo'
 
 
 const Show = (props) => {
@@ -46,6 +47,7 @@ const Show = (props) => {
     
   return (
     <div>
+      <Logo />
       <div className="form-container">
     <form onSubmit={handleSubmit} id="postForm">
       <label htmlFor="title">Recipe Title:</label>

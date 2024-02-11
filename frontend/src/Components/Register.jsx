@@ -1,6 +1,7 @@
 import { useNavigate, Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import './Something.css';
+import Logo from '../Components/logo'
 
 const Register = (props) => {
   const navigateTo = useNavigate();
@@ -31,6 +32,7 @@ const Register = (props) => {
 
   return (
     <div className="form-container">
+      <Logo />
       <div id="postForm">
         <h1 className="font-black text-center text-[50px]">Register</h1>
         <label htmlFor="username">Username:</label>
@@ -50,7 +52,10 @@ const Register = (props) => {
         <Link to="/login">already have an account? click here.</Link>
         </p>
       </div>
-      <div className="backgroundimg"></div>
+      <div className="addFormBackground bg-addFormBg bg-cover ">
+
+      </div>
+      {/* <div className="backgroundimg"></div> */}
     </div>
   );
 };

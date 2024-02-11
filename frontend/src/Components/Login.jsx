@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Something.css'
+import Logo from '../Components/logo'
 
 const Login = (props) => {
   const navigateTo = useNavigate();
@@ -36,6 +37,11 @@ const Login = (props) => {
 
   return (
       <div className="form-container">
+        <Logo />
+        <div className="addFormBackground bg-addFormBg bg-cover ">
+
+</div>
+    
     <form onSubmit={handleSubmit} id="postForm">
         <h1 className='font-black text-center text-[50px]'>Login</h1>
       <label htmlFor="username">Username:</label>
@@ -49,7 +55,7 @@ const Login = (props) => {
     </div>
     <p><Link to='/register'>For a new account click here.</Link></p>
     </form>
-    <div className="backgroundimg"></div>
+    {/* <div className="backgroundimg"></div> */}
     </div>
   )
 }

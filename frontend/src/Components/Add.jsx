@@ -2,6 +2,7 @@ import {useNavigate} from 'react-router-dom'
 import { useEffect, useState } from "react";
 import './Something.css'
 import Navbar from './navbar';
+import Logo from '../Components/logo'
 
 const Add = (props) => {
   const navigateTo = useNavigate();
@@ -45,9 +46,13 @@ const Add = (props) => {
   
   return (
     <div className="form-container">
+      <Logo />
       <Navbar />
+      <div className="addFormBackground bg-addFormBg bg-cover ">
+
+      </div>
     <form onSubmit={handleSubmit} id="postForm">
-      <label id='title' htmlFor="title">Title:</label>
+      <label id='titleLable' htmlFor="title">Title:</label>
       <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
       <label htmlFor="description">Description:</label>
     <textarea id="description" name="description" rows="4" required onChange={(e) => setDescription(e.target.value)}></textarea>
@@ -55,7 +60,7 @@ const Add = (props) => {
       <label>Image:</label>
       <input id="image" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
       </div>
-      <label>Categories (separated by commas):</label>
+      <label id="categoriesInputLable">Categories (separated by commas):</label>
       <input type="text" id="categoriesInput" placeholder="Enter categories" onChange={(e) => setCategories(e.target.value)} />
       <button className='addRecipeBtn' type="submit">Add Recipe</button>
     </form>

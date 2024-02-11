@@ -1,5 +1,6 @@
 // import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Logo from '../Components/logo'
 
 
 const MyRecipeCard = (recipe) => {
@@ -11,6 +12,7 @@ const MyRecipeCard = (recipe) => {
   const maxLength = 100;
   return (
     <div className="recipeCard mx-auto bg-gray-900 overflow-hidden shadow-lg" >
+      <Logo />
       <img class="recipeCardImages relative border-red-400 w-84 mx-4 h-28 overflow-hidden bg-blue-gray-500 bg-clip-border shadow-lg  bg-white" src={recipe.imageUrl}></img>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-primary">{recipe.title}</div>

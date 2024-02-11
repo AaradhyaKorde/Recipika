@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import MyRecipeCard from './MyRecipeCard'
 import './Something.css'
 import Navbar from './navbar'
+import Logo from '../Components/logo'
 
 const MyRecipe = (props) => {
   const navigateTo = useNavigate();
@@ -44,6 +45,7 @@ const MyRecipe = (props) => {
 
   return (
     <>
+    <Logo />
     <Navbar />
       <div class="input-group ml-12">
         <input type="text" class="input" id="Email" name="Email" placeholder="Search by category..." autocomplete="off" value={search} onChange={async(e) => {

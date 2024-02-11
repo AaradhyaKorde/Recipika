@@ -11,6 +11,10 @@ export default {
       //   secondary: "#ffffff",
       //   tertiary: "#ffffff",
       // }
+      backgroundImage:{
+        "addFormBg":"url('/src/images/addFormBackground.jpg')",
+        "logoImg":"url('/src/images/recipika.png')"
+      }
     },
   },
   plugins: [],
