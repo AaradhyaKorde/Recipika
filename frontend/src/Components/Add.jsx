@@ -28,7 +28,7 @@ const Add = (props) => {
     formData.append('categories', categories);
     formData.append('user',props.login);
 
-      const response = await fetch('http://localhost:4500/api/posts/create-recipe', {
+      const response = await fetch('http://localhost:4500/api/posts/create-recipe', { 
         method: 'POST',
         body: formData,
       });

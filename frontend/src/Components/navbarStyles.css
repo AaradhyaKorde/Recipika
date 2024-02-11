@@ -1,11 +1,12 @@
 .navbar{
     width: 100vw;
     height: 7vh;
-    background-color: #5E4dcd;
+    background-color: #6f7997;
     z-index: 10;
     position: fixed;
     top: 0;
     left: 0;
+    font-family: Univa Nova;
 }
 
 .navbar ul{

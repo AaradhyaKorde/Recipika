@@ -45,13 +45,13 @@ const ViewAll = (props) => {
   return (
     <>
     <Navbar />
-      <div class="input-group ml-12">
+      {/* <div class="input-group ml-12">
         <input type="text" class="input" id="Email" name="Email" placeholder="Search by category..." autocomplete="off" value={search} onChange={async(e) => {
           setSearch(e.target.value);
           await searchRecipe();
         }} />
         <input class="button--submit" value="Search" onClick={searchRecipe}  />
-      </div>
+      </div> */}
       <div className='recipeCardOuter -900 px-10 py-20 flex gap-5 flex-wrap items-center'>
         {array.map(RecipeCard)}
       </div>

@@ -8,6 +8,7 @@ import Login from './Components/Login'
 import Register from './Components/Register'
 import Show from './Components/Show'
 import Loader from './Components/Loader'
+import Home from './Components/home'
 
 const App = () => {
   const [login,setLogin] = useState(null);
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/login' element={<Login login={login} setLogin={setLogin} setLoader={setLoader}/>} />
           <Route path='/register' element={<Register login={login} setLogin={setLogin} setLoader={setLoader}/>} />
           <Route path='/myRecipe' element={<MyRecipe login={login} setLogin={setLogin} setLoader={setLoader}/>} />
+          <Route path='/home' element={<Home login={login} setLogin={setLogin} setLoader={setLoader}/>} />
         </Routes>
       </BrowserRouter>
     </div>

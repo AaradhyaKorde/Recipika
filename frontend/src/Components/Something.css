@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: yellow;
+    background-color: white;
     margin: 0;
     padding: 0;
     display: flex;
@@ -53,9 +53,10 @@ body {
   .input-group {
     display: flex;
     align-items: center;
-    position: fixed;
-    top: 9vh;
-    left: 7vw;
+    position: absolute;
+    top: 0.4vh;
+    left: -51vw;
+    margin-left: 1vw;
   }
   
   .input {
@@ -64,7 +65,7 @@ body {
     padding: 0 1rem;
     color: #fff;
     font-size: 15px;
-    border: 1px solid #5e4dcd;
+    border: 1px solid #535c78;
     border-radius: 6px 0 0 6px;
     background-color: transparent;
   }
@@ -75,7 +76,7 @@ body {
     padding: .5em 1em;
     border: none;
     border-radius: 0 6px 6px 0;
-    background-color: #5e4dcd;
+    background-color: #535c78;
     color: #fff;
     font-size: 15px;
     cursor: pointer;
@@ -101,7 +102,7 @@ body {
     text-align: center;
     background-color: #00CC00;
     border: 2px solid black;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     display: none;
   }
 
@@ -114,12 +115,14 @@ body {
   
   .recipeCard{
     width: 25vw;
-    height: 35vh;
-    background-color: #5e4dcd;
+    height: 43vh;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: #5a6998;
+    font-family: Univa Nova;
   }
   
   /* .recipeCard:hover{
@@ -134,6 +137,19 @@ body {
 
   .recipeCard:hover .recipeDescription{
     /* display: block; */
+  }
+
+  .select-none{
+    background-color: #6f7997;
+  }
+
+  .recipeCardImages{
+    width: 100%;
+    height: 100%;
+  }
+
+  .recipeTitleCard{
+    font-size: 1.8rem;
   }
   
   .backgroundimg{
@@ -159,3 +175,122 @@ body {
   .recipeDescription{
     display: none;
   }
+
+  .homeImageDiv{
+    width: 65vw;
+    height: 80vh;
+    border: 1px solid green;
+    position: absolute;
+    left: 0;
+    top: 10vh;
+  }
+  
+  .homeImageDiv img{
+    width: 65vw;
+    height: 80vh;
+  }
+  
+  .homeImageDiv p{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: #6f7997;
+    border: 2px solid red;
+    width: 40vw;
+    height: 14vh;
+    font-size: 68px;
+  }
+
+  
+
+  .rightDivList{
+    width: 30vw;
+    /* height: 70vh; */
+    /* border: 1px solid purple; */
+    position: absolute;
+    right: 0;
+    top: 10vh;
+  }
+
+  .portraitDivs{
+    width: 27vw;
+    height: 70vh;
+    /* border: 1px solid pink; */
+    margin-bottom: 7vh;
+    display: flex;
+    flex-direction: column;
+    /* color: red; */
+  }
+
+  .portraitDivs:hover{
+    border-right: 8px solid #6f7997;
+    border-bottom: 8px solid #6f7997;
+  }
+
+  .portraitDivs img{
+    min-width: 27vw;
+    height: 37vh;
+    z-index: -1;
+  }
+  .portraitDivs p{
+    font-size: 32px;
+  }
+
+  .portraitDivs p{
+    color: #6f7997;
+  }
+
+  .portraitDivs .title1{
+    font-weight: bolder;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .landscapeDivs{
+    width: 65vw;
+    height: 150vh;
+    border: 1px solid yellow;
+    position: absolute;
+    left: 0;
+    top: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-content: flex-start
+  }
+
+  .landDivs{
+    flex: 0 0;
+    min-width: 30vw;
+    height: 25vh;
+    border: 1px solid limegreen;
+    margin-top: 2.5vh;
+    margin-left: 2.3vw;
+  }
+
+  .aboutDivHome{
+    border: 1px solid blue;
+    width: 65vw;
+    height: 150vh;
+    position: absolute;
+    bottom: -300vh;
+    left: 0;
+  }
+
+  .allOfTheAbove{
+    background-color: white;
+  }
+
+  .overlay {
+    position: relative;
+    top: -24vh;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.082); /* Dark overlay color with transparency */
+    transition: opacity 0.3s ease;
+}
+
+.landDivs:hover .overlay {
+    opacity: 0; /* Make the overlay transparent on hover */
+}
