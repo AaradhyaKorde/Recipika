@@ -47,15 +47,17 @@ const Add = (props) => {
     <div className="form-container">
       <Navbar />
     <form onSubmit={handleSubmit} id="postForm">
-      <label htmlFor="title">Title:</label>
+      <label id='title' htmlFor="title">Title:</label>
       <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
       <label htmlFor="description">Description:</label>
     <textarea id="description" name="description" rows="4" required onChange={(e) => setDescription(e.target.value)}></textarea>
+      <div className="imageInput">
       <label>Image:</label>
       <input id="image" type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} />
+      </div>
       <label>Categories (separated by commas):</label>
       <input type="text" id="categoriesInput" placeholder="Enter categories" onChange={(e) => setCategories(e.target.value)} />
-      <button type="submit">Add Recipe</button>
+      <button className='addRecipeBtn' type="submit">Add Recipe</button>
     </form>
     </div>
   );

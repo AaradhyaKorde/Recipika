@@ -55,7 +55,7 @@ const MyRecipe = (props) => {
       <div className='recipeCardOuter -900 px-10 py-20 flex gap-5 flex-wrap items-center'>
         {array.map(MyRecipeCard)}
       </div>
-      <Link className='addRecipeBtn' to='/addrecipe'>Create</Link>
+      {/* <Link className='addRecipeBtn' to='/addrecipe'>Create</Link> */}
     </>
   )
 }

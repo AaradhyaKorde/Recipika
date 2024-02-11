@@ -15,10 +15,16 @@ body {
 
   .form-container {
     background-color: #fff;
-    border-radius: 10px; 
+    /* border-radius: 10px;  */
   box-shadow: 0px 0px 10px 0px white;
     padding: 20px;
-    width: 1200px;
+    width: 40vw;
+    font-family: Univa Nova;
+    /* border: 1px solid blue; */
+    background-color: #6f7997;
+    /* display: flex;
+    flex-direction: column; */
+    padding-left: 2vw;
   }
 
   .form-container label {
@@ -26,18 +32,54 @@ body {
     margin-bottom: 8px;
   }
 
+  .addRecipeBtn{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50%;
+    transform: translate(-50%);
+  }
+
   .form-container input,
   .form-container textarea {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    /* border-radius: 4px; */
+  }
+
+  .form-container label{
+    font-size: 18px;
+    color: white;
+    font-weight: bolder;
+  }
+
+  .imageInput{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .imageInput label {
+    padding-top: 10px;
+  }
+
+  #description {
+    width: 100%;
+  }
+
+  #title,#categoriesInput{
+    width: 100%;
+  }
+
+  #image{
+    width: 50%;
+    color: white;
   }
 
   .form-container button {
-    background-color: #4caf50;
+    background-color: #6f7997;
     color: #fff;
     padding: 10px 15px;
     border: none;
@@ -47,7 +89,7 @@ body {
   }
 
   .form-container button:hover {
-    background-color: #45a049;
+    background-color: #7c839a;
   }
 
   .input-group {
@@ -92,7 +134,7 @@ body {
     outline: none;
   }
   
-  .addRecipeBtn{
+  /* .addRecipeBtn{
     width: 16vw;
     height: 8vh;
     position: fixed;
@@ -103,13 +145,20 @@ body {
     background-color: #00CC00;
     border: 2px solid black;
     /* border-radius: 15px; */
-    display: none;
-  }
+    /* display: none; */
+  /* }  */
 
   .recipeCardOuter{
     /* display: flex; */
-    margin-top: 100vh;
-
+    /* margin-top: 150vh; */
+    height: fit-content;
+    min-width: 100vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 10vh;
+    justify-content: flex-start;
   }
 
   
@@ -123,6 +172,9 @@ body {
     flex-direction: column;
     color: #5a6998;
     font-family: Univa Nova;
+    /* margin: 2.5vw 2.5vw;
+    align-items: center;
+    justify-content: center; */
   }
   
   /* .recipeCard:hover{
@@ -146,6 +198,7 @@ body {
   .recipeCardImages{
     width: 100%;
     height: 100%;
+    border-radius: 0;
   }
 
   .recipeTitleCard{
