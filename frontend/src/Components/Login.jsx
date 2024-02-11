@@ -26,7 +26,7 @@ const Login = (props) => {
           // Redirect to another page after successful login
           props.setLogin(data.token);
           props.setLoader(false);
-          navigateTo('/viewAll') // Replace with the actual page URL
+          navigateTo('/home') // Replace with the actual page URL
       } else {
           // Handle unsuccessful login, e.g., display an error message
           alert('Login failed');

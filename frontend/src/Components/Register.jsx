@@ -21,7 +21,7 @@ const Register = (props) => {
     console.log(data);
     if (data.token) {
       props.setLogin(data.token);
-      navigateTo('/viewAll');
+      navigateTo('/home');
       props.setLoader(false);
     } else {
       // Handle unsuccessful registration, e.g., display an error message
