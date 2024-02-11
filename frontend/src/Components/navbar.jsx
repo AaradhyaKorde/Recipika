@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import {Link,useNavigate} from 'react-router-dom';
 import './navbarStyles.css'
-const Navbar = (props)=>{
+const Navbar = ({ updateRecipes })=>{
 
 
 
@@ -11,7 +11,7 @@ const Navbar = (props)=>{
 
     let searchRecipe = async() => {
         console.log(search);
-        props.setLoader(true);
+        // props.setLoader(true);
         const response = await fetch('http://localhost:4500/api/posts/getRecipeByCategory',{
           method: 'POST',
           headers: {"Content-Type": "application/json"},
@@ -20,10 +20,11 @@ const Navbar = (props)=>{
         let data = await response.json();
         console.log(data);
         if(response.ok && data.length > 0) {
+          updateRecipes(data);
           setArray(data);
-          props.setLoader(false);
+          // props.setLoader(false);
         }
-        props.setLoader(false);
+        // props.setLoader(false);
       }
 
 
@@ -38,6 +39,7 @@ const Navbar = (props)=>{
           setSearch(e.target.value);
           await searchRecipe();
         }} />
+        {/* <button type="submit" class="button--submit" value="Search" onClick={searchRecipe}>Search</button> */}
         <input class="button--submit" value="Search" onClick={searchRecipe}  />
       </div>
             <Link to='/addRecipe'><li>Create Recipe</li></Link>

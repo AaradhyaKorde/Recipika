@@ -25,6 +25,11 @@ const ViewAll = (props) => {
       }
       x();
     },[])
+
+    const updateRecipes = (data) => {
+      setArray(data); // Update state with filtered data
+    };
+
     let searchRecipe = async() => {
       console.log(search);
       props.setLoader(true);
@@ -44,7 +49,7 @@ const ViewAll = (props) => {
 
   return (
     <>
-    <Navbar />
+    <Navbar updateRecipes={updateRecipes} />
       {/* <div class="input-group ml-12">
         <input type="text" class="input" id="Email" name="Email" placeholder="Search by category..." autocomplete="off" value={search} onChange={async(e) => {
           setSearch(e.target.value);
