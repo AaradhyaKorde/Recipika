@@ -57,7 +57,7 @@ const ViewAll = (props) => {
         }} />
         <input class="button--submit" value="Search" onClick={searchRecipe}  />
       </div> */}
-      <div className='recipeCardOuter -900 px-10 py-20 flex gap-5 flex-wrap items-center'>
+      <div className='recipeCardOuter px-10 py-20 flex gap-5 flex-wrap items-center'>
         {array.map(RecipeCard)}
       </div>
     </>

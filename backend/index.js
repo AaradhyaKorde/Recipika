@@ -16,7 +16,7 @@ app.use(express.json());
 
 
 //Database
-mongoose.connect('mongodb+srv://utkarsh:cSTxUu1BXzFu7mvD@cluster0.aury35y.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://rudrakshkumrawat110:qqAS1md8fSdio7l3@cluster0.rxlacmh.mongodb.net/')
 
 const userSchema = new mongoose.Schema({
   username: String,
@@ -32,7 +32,7 @@ const recipeSchema = new mongoose.Schema({
   categories: [String]
 });
 
-const Recipe = mongoose.model('Recipe', recipeSchema);
+const Recipe = mongoose.model('Recipes', recipeSchema);
 const User = mongoose.model('Recipika-Users', userSchema);
 
 //Multer Configuration
