@@ -32,7 +32,7 @@ const Register = (props) => {
   return (
     <div className="form-container">
       <div id="postForm">
-        <h1 className="font-black text-center text-[50px]">Register.</h1>
+        <h1 className="font-black text-center text-[50px]">Register</h1>
         <label htmlFor="username">Username:</label>
         <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <label htmlFor="gmail">Gmail:</label>
@@ -47,7 +47,7 @@ const Register = (props) => {
         </div>
 
         <p>
-          already have an account? <Link to="/login">here</Link>.
+        <Link to="/login">already have an account? click here.</Link>
         </p>
       </div>
       <div className="backgroundimg"></div>

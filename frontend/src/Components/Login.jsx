@@ -37,7 +37,7 @@ const Login = (props) => {
   return (
       <div className="form-container">
     <form onSubmit={handleSubmit} id="postForm">
-        <h1 className='font-black text-center text-[50px]'>Login.</h1>
+        <h1 className='font-black text-center text-[50px]'>Login</h1>
       <label htmlFor="username">Username:</label>
       <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
       <label htmlFor="password">Password:</label>
@@ -47,7 +47,7 @@ const Login = (props) => {
           
     }}>Login</button>
     </div>
-    <p>For a new account <Link to='/register'>here</Link>.</p>
+    <p><Link to='/register'>For a new account click here.</Link></p>
     </form>
     <div className="backgroundimg"></div>
     </div>
